@@ -10,157 +10,208 @@
     
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;700;800&family=Outfit:wght@900&display=swap" rel="stylesheet">
     
-   <style>
+    <style>
+        /* CSS VARIABLES & RESET */
         :root {
             --medic-red: #ff3131;
             --medic-blue: #0070f3;
             --dark-bg: #050505;
-            --max-w: 1000px;
+            --max-w: 1100px;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        * { 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
+        }
 
         body { 
             font-family: 'Plus Jakarta Sans', sans-serif; 
             background: var(--dark-bg); 
             color: #fff;
             overflow-x: hidden;
-        }
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { 
-            font-family: 'Plus Jakarta Sans', sans-serif; 
-            background: var(--dark-bg); 
-            color: #fff;
-            overflow-x: hidden;
+            line-height: 1.6;
+            scroll-behavior: smooth;
         }
 
-        /* --- MODERN NAV --- */
+        /* --- HEADER / NAV --- */
         header {
             position: fixed;
             top: 0; width: 100%; z-index: 1000;
-            padding: 15px 0;
-            background: rgba(5, 5, 5, 0.85);
-            backdrop-filter: blur(20px);
+            padding: 20px 0;
+            background: rgba(5, 5, 5, 0.8);
+            backdrop-filter: blur(15px);
             border-bottom: 1px solid rgba(255,255,255,0.05);
         }
 
-        .h-container {
-            max-width: var(--max-w);
-            margin: 0 auto;
-            padding: 0 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+        .h-container { 
+            max-width: var(--max-w); 
+            margin: 0 auto; 
+            padding: 0 20px; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
         }
 
-        .logo img { height: 45px; }
+        .logo img { height: 40px; }
 
-        nav ul { display: flex; list-style: none; gap: 20px; align-items: center; }
-        nav ul li a {
-            color: #888;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 0.7rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: 0.3s;
+        nav ul { display: flex; list-style: none; gap: 25px; align-items: center; }
+        nav ul li a { 
+            color: #aaa; 
+            text-decoration: none; 
+            font-weight: 700; 
+            font-size: 0.75rem; 
+            text-transform: uppercase; 
+            letter-spacing: 1px; 
+            transition: 0.3s; 
         }
         nav ul li a:hover { color: #fff; }
 
-        .call-btn {
-            background: var(--medic-red);
-            color: #fff;
-            padding: 10px 18px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 800;
-            font-size: 0.75rem;
+        .call-nav-btn { 
+            background: var(--medic-red); 
+            color: #fff; 
+            padding: 10px 20px; 
+            border-radius: 8px; 
+            text-decoration: none; 
+            font-weight: 800; 
+            font-size: 0.8rem;
+            transition: 0.3s;
         }
+        .call-nav-btn:hover { transform: scale(1.05); box-shadow: 0 5px 15px rgba(255, 49, 49, 0.3); }
 
-        /* --- HERO SECTION --- */
+        /* --- HERO SECTION CSS --- */
         .hero {
-            padding: 140px 0 60px;
             min-height: 100vh;
             display: flex;
-            flex-direction: column;
-            justify-content: center;
-            background: radial-gradient(circle at top right, rgba(0, 112, 243, 0.12), transparent 45%);
+            align-items: center;
+            background: radial-gradient(circle at top right, rgba(0, 112, 243, 0.08), transparent 45%);
+            padding-top: 140px;
+            padding-bottom: 80px;
         }
 
         .hero-wrapper {
             max-width: var(--max-w);
             margin: 0 auto;
-            width: 100%;
-            padding: 0 20px;
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 50px;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 60px;
+            padding: 0 20px;
             align-items: center;
         }
 
-        /* Text Side */
-        .hero-content h1 {
+        .section-badge { 
+            color: var(--medic-blue); 
+            font-size: 0.7rem; 
+            font-weight: 900; 
+            letter-spacing: 2.5px; 
+            margin-bottom: 15px; 
+            display: block; 
+            text-transform: uppercase; 
+        }
+
+        .hero-title {
             font-family: 'Outfit', sans-serif;
-            font-size: clamp(2.4rem, 5vw, 3.8rem);
+            font-size: clamp(2.8rem, 5vw, 4rem);
             line-height: 1.05;
-            margin-bottom: 20px;
-            font-weight: 900;
-            letter-spacing: -1px;
+            margin-bottom: 25px;
+            letter-spacing: -2px;
+            color: #fff;
         }
-        .hero-content h1 span { color: var(--medic-red); }
+        .hero-title span { color: var(--medic-red); }
 
-        .hero-content p {
-            font-size: 1rem;
+        .hero-desc {
+            font-size: 1.05rem;
             color: #999;
-            margin-bottom: 35px;
-            line-height: 1.6;
-            max-width: 440px;
+            margin-bottom: 40px;
+            line-height: 1.7;
+            max-width: 500px;
         }
 
-        /* Contact Info Blocks */
         .info-strip {
             display: flex;
-            flex-wrap: wrap;
-            gap: 25px;
-            margin-bottom: 40px;
+            gap: 40px;
+            margin-bottom: 45px;
             border-left: 2px solid var(--medic-blue);
-            padding-left: 20px;
+            padding-left: 25px;
         }
-        .info-item {
-            display: flex;
-            flex-direction: column;
-        }
-        .info-item label { font-size: 0.6rem; color: var(--medic-blue); font-weight: 900; letter-spacing: 1.5px; margin-bottom: 4px; }
-        .info-item span { font-size: 0.85rem; font-weight: 700; color: #fff; }
-        .info-item a { color: #fff; text-decoration: none; font-size: 0.85rem; font-weight: 700; }
 
-        .hero-btns { display: flex; gap: 15px; }
-        .btn-primary { 
-            background: #fff; color: #000; padding: 18px 35px; border-radius: 12px; 
-            text-decoration: none; font-weight: 800; transition: 0.3s;
+        .info-item label {
+            font-size: 0.65rem;
+            color: var(--medic-blue);
+            font-weight: 900;
+            letter-spacing: 2px;
+            display: block;
+            margin-bottom: 5px;
+        }
+        .info-item span, .info-item a {
+            font-size: 1rem;
+            font-weight: 800;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .hero-actions { display: flex; gap: 20px; align-items: center; }
+
+        .btn-primary {
+            background: #fff;
+            color: #000;
+            padding: 20px 40px;
+            border-radius: 14px;
+            text-decoration: none;
+            font-weight: 800;
             font-size: 0.9rem;
+            transition: 0.3s;
         }
-        .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(255,255,255,0.15); }
+        .btn-primary:hover {
+            transform: translateY(-5px);
+            background: var(--medic-red);
+            color: #fff;
+            box-shadow: 0 15px 30px rgba(255, 49, 49, 0.2);
+        }
 
-        /* Image Side */
-        .hero-visual { position: relative; }
-        .main-img {
+        .btn-secondary {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.9rem;
+            border-bottom: 2px solid rgba(255,255,255,0.1);
+            padding-bottom: 5px;
+            transition: 0.3s;
+        }
+        .btn-secondary:hover { border-color: var(--medic-blue); color: var(--medic-blue); }
+
+        /* HERO IMAGE BOX */
+        .main-img-hero {
             width: 100%;
-            height: 500px;
-            background: url('https://i.pinimg.com/736x/4d/7d/6e/4d7d6e5a247950b0dc6f2b267f567a2d.jpg') center/cover;
-            border-radius: 24px;
+            height: 550px;
+            background: url('https://avatars.mds.yandex.net/i?id=a56c71434cb0391810fc6eefcd91a84514b6c017-5530893-images-thumbs&n=13') center/cover;
+            border-radius: 30px;
             border: 1px solid rgba(255,255,255,0.1);
-            box-shadow: 0 40px 100px rgba(0,0,0,0.6);
+            position: relative;
+            box-shadow: 0 40px 80px rgba(0,0,0,0.5);
         }
 
-        /* Responsive */
-        @media (max-width: 850px) {
-            .hero-wrapper { grid-template-columns: 1fr; text-align: center; }
-            .hero-content p { margin: 0 auto 30px; }
-            .info-strip { justify-content: center; border-left: none; padding-left: 0; }
-            .hero-btns { justify-content: center; flex-direction: column; }
-            .main-img { height: 350px; }
-            nav { display: none; }
+        .img-badge {
+            position: absolute;
+            bottom: 30px;
+            left: -30px;
+            background: var(--dark-bg);
+            border: 1px solid rgba(255,255,255,0.1);
+            padding: 20px 30px;
+            border-radius: 20px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+        }
+        .img-badge strong { font-size: 2rem; color: var(--medic-red); display: block; font-family: 'Outfit'; }
+        .img-badge span { font-size: 0.65rem; color: #888; text-transform: uppercase; font-weight: 900; letter-spacing: 1px; }
+
+        @media (max-width: 900px) {
+            .hero-wrapper { grid-template-columns: 1fr; text-align: center; gap: 50px; }
+            .hero-desc { margin: 0 auto 40px; }
+            .info-strip { justify-content: center; border: none; padding: 0; }
+            .hero-actions { justify-content: center; }
+            .main-img-hero { height: 400px; }
+            .img-badge { left: 50%; transform: translateX(-50%); bottom: -20px; }
         }
     </style>
 </head>
@@ -168,46 +219,56 @@
 
     <header>
         <div class="h-container">
-            <a href="#" class="logo">
-                <img src="https://homeandappliancemedic.com/wp-content/uploads/2025/05/2023-08-28.webp" alt="Home & Appliance Medic Logo">
-            </a>
+            <div class="logo">
+                <img src="https://homeandappliancemedic.com/wp-content/uploads/2025/05/2023-08-28.webp" alt="Home & Appliance Medic">
+            </div>
             <nav>
                 <ul>
+                    <li><a href="#home">Home</a></li>
                     <li><a href="#about">About</a></li>
                     <li><a href="#services">Services</a></li>
-                    <li><a href="#reviews">Reviews</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                    <li><a href="tel:4344004663" class="call-btn">434-400-4663</a></li>
+                    <li><a href="tel:4344004663" class="call-nav-btn">Call Now</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <section class="hero">
+    <section id="home" class="hero">
         <div class="hero-wrapper">
+            
             <div class="hero-content">
-                <h1>Professional <span>Appliance</span> Repair & Home Services.</h1>
-                <p>Trusted experts in Woodbridge, VA. We bring fast, reliable, and high-quality solutions to keep your home running smoothly.</p>
+                <span class="section-badge">WOODBRIDGE'S MOST TRUSTED</span>
+                <h1 class="hero-title">Expert <span>Appliance</span> Repair Solutions.</h1>
+                <p class="hero-desc">
+                    Fast, reliable, and professional repairs for all your household appliances. We bring the medic to your doorstep in Woodbridge, VA.
+                </p>
                 
                 <div class="info-strip">
                     <div class="info-item">
-                        <label>WORKING HOURS</label>
-                        <span>Mon - Sat (9am - 6pm)</span>
+                        <label>CALL NOW</label>
+                        <a href="tel:4344004663">434-400-4663</a>
                     </div>
                     <div class="info-item">
-                        <label>EMAIL US</label>
-                        <a href="mailto:homeappliancemedic@gmail.com">homeappliancemedic@gmail.com</a>
+                        <label>SERVICE AREA</label>
+                        <span>Woodbridge, VA</span>
                     </div>
                 </div>
 
-                <div class="hero-btns">
-                    <a href="tel:4344004663" class="btn-primary">BOOK SERVICE NOW</a>
+                <div class="hero-actions">
+                    <a href="#services" class="btn-primary">EXPLORE SERVICES</a>
+                    <a href="#about" class="btn-secondary">LEARN MORE</a>
                 </div>
             </div>
 
             <div class="hero-visual">
-                <div class="main-img"></div>
+                <div class="main-img-hero">
+                    <div class="img-badge">
+                        <strong>10+</strong>
+                        <span>Years Experience</span>
+                    </div>
+                </div>
             </div>
+
         </div>
     </section>
 
